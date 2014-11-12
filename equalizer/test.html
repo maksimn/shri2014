@@ -77,14 +77,18 @@
             }
         }
 
-        function runSpanAnimation(span, timeout, eqHeight) {
-            var colHeight = Math.round(eqHeight * Math.random());
-            $(span).height(colHeight);
-
-            $(span).animate({ height: eqHeight / 2 },
+        function runSpanAnimation(span, timeout, equalizerHeight) {
+            var colHeight = Math.round(equalizerHeight * Math.random());
+            $(span).height(equalizerHeight / 2);
+            $(span).animate(
+                    { height: colHeight },
+                    timeout,
+                    'linear'
+            ).animate(
+                    { height: equalizerHeight / 2 },
                     timeout,
                     'linear',
-                    function () { runSpanAnimation(span, timeout, eqHeight); }
+                    function () { runSpanAnimation(span, timeout, equalizerHeight); }
             );
         }
 
