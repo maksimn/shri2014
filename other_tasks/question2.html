@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>JavaScript, Limited Execution Pattern</title>
+
+    <script type="text/javascript">
+        Function.prototype.limitExecByInterval = function (time) {
+            var lock, execOnUnlock, args, fn = this;
+            return function () {
+                args = arguments;
+                if (!lock) {
+                    fn.apply(this, args);
+                    lock = true;
+                    var scope = this;
+                    setTimeout(function () {
+                        lock = false;
+                        if (execOnUnlock) {
+                            args.callee.apply(scope, args);
+                            execOnUnlock = false;
+                        }
+                    }, time);
+                } else execOnUnlock = true;
+            }
+        }
+
+        window.onload = function () {
+            var handler = function () {
+                for (var i = 0; i < 1000; i++) {
+                    document.getElementById('indicator').innerHTML = this.value.length;
+                }
+            };
+            document.getElementById('limit').onchange = function () {
+                document.getElementById('message').onkeyup = this.checked ?
+					handler.limitExecByInterval(70) : handler;
+            }
+            document.getElementById('limit').onchange();
+        }
+    </script>
+</head>
+<body>
+    <h1>Limited execution frequency pattern</h1>
+
+    <p>
+        <label for="message">Type something quickly here to see the effect:</label><br />
+        <textarea rows="5" cols="30" id="message"></textarea><br />
+        You have entered <span id="indicator">0</span> symbols.
+    </p>
+
+    <p><label><input id="limit" type="checkbox" /> Enable function limitation</label></p>
+
+    <p>Don't forget to <em>take a look at the source code</em> of this page.</p>
+</body>
+</html>

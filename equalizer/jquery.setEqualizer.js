@@ -16,10 +16,8 @@
             span.css({
                 verticalAlign: 'bottom',
                 display: 'inline-block',
-
                 fontSize: 0,
                 lineHeight: 0,
-
                 width: colWidth,
                 background: 'pink',
                 borderTop: '2px solid red'
