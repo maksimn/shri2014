@@ -20,7 +20,9 @@
                             execOnUnlock = false;
                         }
                     }, time);
-                } else execOnUnlock = true;
+                } else {
+                    execOnUnlock = true;
+                }
             }
         }
 
@@ -32,7 +34,7 @@
             };
             document.getElementById('limit').onchange = function () {
                 document.getElementById('message').onkeyup = this.checked ?
-					handler.limitExecByInterval(70) : handler;
+					handler.limitExecByInterval(700) : handler;
             }
             document.getElementById('limit').onchange();
         }
