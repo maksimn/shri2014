@@ -31,8 +31,6 @@
 
         var particles = d3.range(n).map(function () {
             return {
-                dx: Math.random() * 2 - 1,
-                dy: Math.random() * 2 - 1,
                 x: Math.random() * width,
                 y: Math.random() * height 
             };
@@ -46,14 +44,16 @@
 
         d3.timer(function () {
             for (var i = 0; i < n; i++) {
+                var dx = (Math.random() * 2 - 1)*1.5, dy = (Math.random() * 2 - 1)*1.5;
                 var particle = particles[i],
-                    dx = particle.dx,
-                    dy = particle.dy,
                     x = particle.x += dx,
                     y = particle.y += dy;
-                // Bounce off the walls.
-                if (x < 0 || x > width) particle.dx *= -1;
-                if (y < 0 || y > height) particle.dy *= -1;
+                
+                // Bounce off the walls. 
+                if (x < 0) particle.x = 0;
+                if (x > width) particle.x = width;
+                if (y < 0) particle.y = 0;
+                if (y > height) particle.y = height;
             }
             circles.attr("transform", circleTransform);
         });
