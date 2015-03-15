@@ -19,6 +19,10 @@
             border: 3px solid #fff;
             padding: 6px;
         }
+
+        .coord {
+            color : white;
+        }
     </style>
 </head>
 <body>
@@ -29,12 +33,14 @@
 
         var n = 100;
 
-        var particles = d3.range(n).map(function () {
-            return {
-                x: Math.random() * width,
-                y: Math.random() * height 
-            };
-        });
+        var particles = d3.range(n).map(
+            function () {
+                return {
+                    x: Math.random() * width,
+                    y: Math.random() * height 
+                };
+            }
+        );
 
         var svg = d3.select("body").append("svg").attr("width", width).attr("height", height);
 
@@ -58,8 +64,42 @@
             circles.attr("transform", circleTransform);
         });
 
+        var a = height / 10; // радиус действия силы
+        var x0, y0; // координаты центра силы (курсора мыши)
+        svg.on("mousemove", force);
+
+        function force() {
+            var coord = d3.mouse(this);
+            x0 = coord[0];
+            y0 = coord[1];
+            // Теперь здесь нужно перебрать координаты всех частиц, и если они попадают в радиус
+            // действия силы, придать им постоянную линейную скорость, направленную радиально от
+            // силового центра.
+            for (var i = 0; i < n; i++) {
+                var particle = particle[i];
+                var x = particle.x, y = particle.y;
+                if (isInForceActionArea(x0, y0, x, y)) {
+
+                }
+            }
+        }
+
+        // Функция, возвращающая true, если частица (x,y) расположена внутри 
+        // радиуса действия силы с центром (x0, y0) 
+        function isInForceActionArea(x0, y0, x, y) {
+
+        }
+/*        
+        d3.select("body").append("p").attr("class", "coord");
+        svg.on("mousemove", listener1);
+        function listener1() {
+            var koordinates = d3.mouse(this);
+            d3.select(".coord").html(" " + koordinates[0] + " " + koordinates[1] + " ");
+        }
+*/
+
         function circleTransform(d) {
-            return "translate(" + [ d.x, d.y ] + ")";
+            return "translate(" +  d.x + "," + d.y + ")";
         }
     </script>
 </body>
