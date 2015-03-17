@@ -12,16 +12,12 @@
         }
 
         circle {
-            fill: #f00;
+            /* fill: red; */
         }
 
         svg {
             border: 3px solid #fff;
             padding: 6px;
-        }
-
-        .coord {
-            color : white;
         }
     </style>
 </head>
@@ -48,9 +44,11 @@
 
         var circles = g.append("circle").attr("r", 6.0);
 
+        var T = 1.5;
+
         d3.timer(function () {
             for (var i = 0; i < n; i++) {
-                var dx = (Math.random() * 2 - 1)*1.5, dy = (Math.random() * 2 - 1)*1.5;
+                var dx = (Math.random() * 2 - 1)*T, dy = (Math.random() * 2 - 1)*T;
                 var particle = particles[i],
                     x = particle.x += dx,
                     y = particle.y += dy;
@@ -63,7 +61,12 @@
             }
             circles.attr("transform", circleTransform);
         });
+        
+        circles.transition().duration(0).style("fill", "red")
+            .transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
+            .transition().duration(getRandomInt(200, 1000)).style("fill", "red");
 
+        var F0 = 100.0;
         var a = height / 10; // радиус действия силы
         var x0, y0; // координаты центра силы (курсора мыши)
         svg.on("mousemove", force);
@@ -76,10 +79,12 @@
             // действия силы, придать им постоянную линейную скорость, направленную радиально от
             // силового центра.
             for (var i = 0; i < n; i++) {
-                var particle = particle[i];
+                var particle = particles[i];
                 var x = particle.x, y = particle.y;
                 if (isInForceActionArea(x0, y0, x, y)) {
-
+                    var r = Math.sqrt((x - x0) * (x - x0) + (y - y0) * (y - y0));                    
+                    particle.x += F0 * (x - x0) / (r * r);
+                    particle.y += F0 * (y - y0) / (r * r);
                 }
             }
         }
@@ -87,19 +92,21 @@
         // Функция, возвращающая true, если частица (x,y) расположена внутри 
         // радиуса действия силы с центром (x0, y0) 
         function isInForceActionArea(x0, y0, x, y) {
-
+            if (Math.sqrt((x - x0) * (x - x0) + (y - y0) * (y - y0)) < a) {
+                return true;
+            }
+            return false;
         }
-/*        
-        d3.select("body").append("p").attr("class", "coord");
-        svg.on("mousemove", listener1);
-        function listener1() {
-            var koordinates = d3.mouse(this);
-            d3.select(".coord").html(" " + koordinates[0] + " " + koordinates[1] + " ");
-        }
-*/
 
         function circleTransform(d) {
             return "translate(" +  d.x + "," + d.y + ")";
         }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        d3.timer(function() {
+        });
     </script>
 </body>
