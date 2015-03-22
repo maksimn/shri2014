@@ -12,7 +12,7 @@
         }
 
         circle {
-            /* fill: red; */
+            fill: red; 
         }
 
         svg {
@@ -61,10 +61,6 @@
             }
             circles.attr("transform", circleTransform);
         });
-        
-        circles.transition().duration(0).style("fill", "red")
-            .transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
-            .transition().duration(getRandomInt(200, 1000)).style("fill", "red");
 
         var F0 = 100.0;
         var a = height / 10; // радиус действия силы
@@ -106,7 +102,21 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        d3.timer(function() {
-        });
+        function transitionsBetweenRedAndYellow() {
+            repeat();
+
+            function repeat() {
+                d3.select("circle:first-child").transition().transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
+                    .transition().duration(getRandomInt(200, 1000)).style("fill", "red")
+                    .each("end", repeat);
+                /*
+                circles.transition().transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
+                    .transition().duration(getRandomInt(200, 1000)).style("fill", "red")
+                    .each("end", repeat);
+                    */
+            }
+        }
+
+        transitionsBetweenRedAndYellow();
     </script>
 </body>
