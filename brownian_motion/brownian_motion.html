@@ -27,7 +27,7 @@
     <script>
         var width = 960, height = 500;
 
-        var n = 100;
+        var n = 67;
 
         var particles = d3.range(n).map(
             function () {
@@ -102,21 +102,14 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function transitionsBetweenRedAndYellow() {
+        (function transitionsBetweenRedAndYellow() {
             repeat();
 
             function repeat() {
-                d3.select("circle:first-child").transition().transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
+                circles.transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
                     .transition().duration(getRandomInt(200, 1000)).style("fill", "red")
                     .each("end", repeat);
-                /*
-                circles.transition().transition().duration(getRandomInt(200, 1000)).style("fill", "yellow")
-                    .transition().duration(getRandomInt(200, 1000)).style("fill", "red")
-                    .each("end", repeat);
-                    */
             }
-        }
-
-        transitionsBetweenRedAndYellow();
+        })();
     </script>
 </body>
