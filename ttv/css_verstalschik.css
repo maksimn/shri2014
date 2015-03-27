@@ -36,7 +36,7 @@ table {
 #startText {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    background-color: aquamarine;
+    background-color: aquamarine; 
 }
 
 h1, h2 {
@@ -53,6 +53,10 @@ p {
 }
 ol {
     margin: 4px 30px 15px 30px;
+}
+
+.iconlist img:last-child {
+    float: right;
 }
 
 
