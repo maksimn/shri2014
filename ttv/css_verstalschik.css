@@ -33,6 +33,7 @@ table {
     border-spacing: 0;
 }
 /* end reset browser styles */
+
 #startText {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
@@ -55,7 +56,19 @@ ol {
     margin: 4px 30px 15px 30px;
 }
 
-.iconlist img:last-child {
+div.iconlist {
+    height: 125px;
+}
+
+div.iconlist div {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 126px;
+    height: 125px;
+    float: left;
+}
+
+div.iconlist div:last-child {
     float: right;
 }
 
