@@ -56,21 +56,49 @@ ol {
     margin: 4px 30px 15px 30px;
 }
 
-div.iconlist {
-    height: 125px;
-}
-
 div.iconlist div {
-    background-repeat: no-repeat;
-    background-position: center;
     width: 126px;
-    height: 125px;
+    height: 126px;
     float: left;
+    overflow: hidden;
 }
 
 div.iconlist div:last-child {
     float: right;
 }
 
+.browser_label {    
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    top: 50px;
+}
 
+.firefox_label {
+    color: #f2a414;
+}
 
+.opera_label {
+    color: #c10e0e;
+}
+
+.safari_label {
+    color: #646464;
+}
+
+.ie_label {
+    color: #036da3;
+}
+
+.chrome_label {
+    color: #c90000;
+}
+
+.chrome_label span:first-child {
+    color: #22A12A;
+}
+
+.chrome_label span:last-child {
+    color: #f9d411;
+}
