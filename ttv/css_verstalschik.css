@@ -56,6 +56,11 @@ ol {
     margin: 4px 30px 15px 30px;
 }
 
+div.iconlist {
+    width: 100%;
+    height: 126px;
+}
+
 div.iconlist div {
     width: 126px;
     height: 126px;
@@ -101,4 +106,25 @@ div.iconlist div:last-child {
 
 .chrome_label span:last-child {
     color: #f9d411;
+}
+
+.text_header {
+    font-size: 24px;
+    line-height: 96%;
+    width: 400px;
+    color: #333;
+}
+
+.text p {
+    font-size: 16px;
+    line-height: 21px;
+    width: 400px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+@font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v4/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
 }
