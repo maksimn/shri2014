@@ -32,7 +32,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-/* end reset browser styles */
+/* end reset browser styles */ 
 
 #startText {
     border-top: 2px solid black;
@@ -108,23 +108,26 @@ div.iconlist div:last-child {
     color: #f9d411;
 }
 
-.text_header {
+/* Task 6 styles: */
+
+h3.text_header {
+    font-family: 'PT Sans';
     font-size: 24px;
-    line-height: 96%;
-    width: 400px;
+    line-height: 25px;
+    width: 300px;
     color: #333;
+    margin-left: 30px;
 }
 
-.text p {
+.task6 p {
+    font-family: 'PT Sans';
     font-size: 16px;
     line-height: 21px;
-    width: 400px;
-    font-family: 'PT Sans', sans-serif;
+    width: 375px; 
+    margin-left: 30px;
+    text-indent: 15px;
 }
 
-@font-face {
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('PT Sans'), local('PTSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v4/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
+div.task6 div {
+    float: left;
 }
