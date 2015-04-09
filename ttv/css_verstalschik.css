@@ -41,11 +41,14 @@ table {
 }
 
 h1, h2 {
-    margin: 10px;   
     font-family: Helvetica, Arial, sans-serif;
 }
 h1 {
+    margin: 20px;
     color: dimgray;
+}
+h2 {
+    margin: 10px 10px 10px 20px;
 }
 
 p {
@@ -116,18 +119,42 @@ h3.text_header {
     line-height: 25px;
     width: 300px;
     color: #333;
-    margin-left: 30px;
+    margin: 20px 0px 0px 30px;
 }
 
 .task6 p {
     font-family: 'PT Sans';
     font-size: 16px;
     line-height: 21px;
-    width: 375px; 
-    margin-left: 30px;
+    width: 375px;  
     text-indent: 15px;
+    margin: 25px 50px 25px 30px;
 }
 
 div.task6 div {
     float: left;
+}
+
+.task6_2nd_col p:last-child {
+    font-family: 'PT Sans';
+    font-size: 16px;
+    text-indent: 0px;
+    line-height: 21px;
+    width: 375px;
+    margin: 45px 0px 25px 15px;
+}
+
+.blue_underlined {
+    color: blue;
+    text-decoration: underline;
+}
+
+.dotted_underlined {
+    text-decoration: none; 
+    display: inline-block; 
+    border-bottom: 1px dashed #333; 
+}
+
+.grey_dash {
+    color: #858585;
 }
