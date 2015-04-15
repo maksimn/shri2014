@@ -1,4 +1,10 @@
-﻿/* reset browser styles */
+﻿@font-face {
+    font-family: 'PT Sans';
+    src: url('fonts/pts55f_w.eot');
+    src: local('PT Sans'), url('fonts/PTS55F_W.eot?#iefix') format('embedded-opentype'), url('fonts/PTS55F_W.woff') format('woff'), url('fonts/PTS55F_W.ttf') format('truetype'), url('fonts/PTS55F_W.svg#PTSans-Regular') format('svg');
+}
+
+/* reset browser styles */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
@@ -52,7 +58,7 @@ h2 {
 }
 
 p {
-    margin: 4px 4px 10px 4px;
+    margin: 4px 4px 10px 20px;
     font-family: "Times New Roman", Times, serif;
 }
 ol {
