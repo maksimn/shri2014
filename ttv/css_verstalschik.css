@@ -165,15 +165,6 @@ div.task6 div {
     color: #858585;
 }
 
-.button {
-    background-color: red;
-    font-family: Verdana;
-    font-size: 11px;
-    border-radius: 5px;
-    text-shadow: 0px 1px 0px #fff;
-    font-weight: bold;
-}
-
 #task4_div1 {
     background-color: blue; 
     width: 150px; 
@@ -187,8 +178,4 @@ div.task6 div {
     left: 50px;  
     width: 80px;
     height: 20px;
-}
-
-.input_button {
-    background-image: url(images/Chrome.png);
 }

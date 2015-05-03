@@ -33,7 +33,13 @@
             <h2>Кнопка</h2>
             <div id="task4_div1">
                 <!--<input id="task4_button1" type="button" value="Кнопка" class="button" />--> 
-                <input type="image" id="task4_button1" src="images/button_normal.png" />
+                <input type="image" id="task4_button1" src="images/button_normal.png" 
+                       onmouseover="this.src='images/button_hover.png'"
+                       onmouseout="this.src='images/button_normal.png'"
+                       onmousedown="this.src='images/button_pressed.png'"
+                       onmouseup="this.src='images/button_normal.png'"
+                       onfocus="this.src='images/button_focus.png'"
+                       onblur="this.src='images/button_normal.png'" />
             </div>
         </div>
         <div>
